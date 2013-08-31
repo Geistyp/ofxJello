@@ -1,1 +1,5 @@
+WIP:
+convert http://jphysicmod.googlecode.com/svn/trunk/Jello_cpp%20textured%20demo/
+to ofxJello
+
 This is an openframeworks wrapper for the cpp port of jelly physics http://vimeo.com/1259977
