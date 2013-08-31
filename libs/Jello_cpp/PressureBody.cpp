@@ -104,5 +104,5 @@ void PressureBody::accumulateExternalForces()
 
     // gravity!
     for (unsigned int i = 0; i < mPointMasses.size(); i++)
-		mPointMasses[i]->Force += Vector2(0, -9.8f * mPointMasses[i]->Mass);
+		mPointMasses[i]->Force += Vector2(0, mPointMasses[i]->Mass) * gGravity;
 }

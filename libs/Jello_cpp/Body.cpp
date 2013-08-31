@@ -2,6 +2,8 @@
 #include "VectorTools.h"
 #include <iostream>
 
+Vector2 Body::gGravity = Vector2(0, -9.8f);
+
 Body::Body()
 {
 	mDerivedAngle = 0.0f;

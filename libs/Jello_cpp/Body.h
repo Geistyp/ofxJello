@@ -68,6 +68,8 @@ public:
 
 	int Type;
 
+	static Vector2 gGravity;		// this is the fast way to add gravity property, I hope :P
+
 
 	/**
 	* default constructor.

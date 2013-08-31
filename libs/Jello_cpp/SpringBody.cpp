@@ -193,7 +193,7 @@ void SpringBody::accumulateExternalForces()
 
     // gravity!
     for (unsigned int i = 0; i < mPointMasses.size(); i++)
-		mPointMasses[i]->Force += Vector2(0, -9.8f * ((PointMass*)mPointMasses.at(i))->Mass);
+		mPointMasses[i]->Force += Vector2(0, ((PointMass*)mPointMasses.at(i))->Mass) * gGravity;	// Add Gravity
 
 	if (dragPoint != -1)
 		mPointMasses[dragPoint]->Force += dragForce;
