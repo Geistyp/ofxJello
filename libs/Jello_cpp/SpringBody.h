@@ -181,6 +181,51 @@ public:
 
 };
 
+
+class FallingBody : public SpringBody
+{
+public:
+	
+	FallingBody(ClosedShape *shape, float massPerPoint, float edgeSpringK, float edgeSpringDamp, Vector2 &pos, float angleinRadians, Vector2 scale, bool kinematic):
+	  SpringBody(shape,massPerPoint,edgeSpringK,edgeSpringDamp,pos,angleinRadians,scale,kinematic)
+	  {
+			//LoadTextureTGA(&g_BallTexture, "crate.tga", GL_LINEAR, GL_LINEAR, false);
+	  }
+
+	  void accumulateExternalForces()
+	  {
+		  SpringBody::accumulateExternalForces();
+
+			for (int i = 0; i < mPointMasses.size(); i++)
+                mPointMasses[i]->Force += Vector2(0.0f, -9.8f * mPointMasses[i]->Mass);
+	  }
+
+	  /*
+	  void DrawMe()
+	  {
+			//Renderer::RenderGlobalShapeLine(mPointMasses,0,0,0);
+
+			glEnable(GL_TEXTURE_2D);
+			glBindTexture(GL_TEXTURE_2D, g_BallTexture);
+			glColor3f(1.0, 1.0, 1.0);
+			glBegin(GL_QUADS);
+			
+			glTexCoord2f(0.0f,0.0f);
+			glVertex2f(((PointMass*)mPointMasses.at(0))->Position.X, ((PointMass*)mPointMasses.at(0))->Position.Y);
+			glTexCoord2f(1.0f,0.0f);
+			glVertex2f(((PointMass*)mPointMasses.at(1))->Position.X, ((PointMass*)mPointMasses.at(1))->Position.Y);
+			glTexCoord2f(1.0f,1.0f);
+			glVertex2f(((PointMass*)mPointMasses.at(2))->Position.X, ((PointMass*)mPointMasses.at(2))->Position.Y);
+			glTexCoord2f(0.0f,1.0f);
+			glVertex2f(((PointMass*)mPointMasses.at(3))->Position.X, ((PointMass*)mPointMasses.at(3))->Position.Y);
+
+
+			glEnd();
+			glDisable(GL_TEXTURE_2D);
+	  }
+	  */
+};
+
 #endif
 
 

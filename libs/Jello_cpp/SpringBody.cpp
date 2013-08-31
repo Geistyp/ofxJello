@@ -11,19 +11,30 @@ SpringBody::~SpringBody()
 SpringBody::SpringBody(ClosedShape *shape, float massPerPoint, float edgeSpringK, float edgeSpringDamp, Vector2 &pos, float angleinRadians, Vector2 scale, bool kinematic):
 Body(shape,massPerPoint,pos,angleinRadians,scale,kinematic)
 {
-	mShapeMatchingOn = false;
-	setPositionAngle(pos, angleinRadians, scale);
-
-    
-    mShapeSpringK = 0.0f;
-    mShapeSpringDamp = 0.0f;
+    mShapeMatchingOn = true;
     mEdgeSpringK = edgeSpringK;
     mEdgeSpringDamp = edgeSpringDamp;
+    mShapeSpringK = 0.0f;
+    mShapeSpringDamp = 0.0f;
+	mShapeMatchingOn = false;
 
-	
 	dragPoint = -1;
 
-    // build default springs.
+	setShape(shape);
+
+		for (unsigned int i = 0; i < mPointMasses.size(); i++)
+		((PointMass*)mPointMasses[i])->Mass = massPerPoint;
+
+	if(massPerPoint > 0)
+		mIsStatic = false;
+	else
+		mIsStatic  = true;
+
+	mKinematic = kinematic;
+
+	setPositionAngle(pos, angleinRadians, scale);
+
+	// build default springs.
     _buildDefaultSprings();
 
 	Type = 2;
@@ -32,7 +43,7 @@ Body(shape,massPerPoint,pos,angleinRadians,scale,kinematic)
 SpringBody::SpringBody(ClosedShape *shape, float massPerPoint, float shapeSpringK, float shapeSpringDamp, float edgeSpringK, float edgeSpringDamp, Vector2 &pos, float angleinRadians, Vector2 scale, bool kinematic):
 Body(shape,massPerPoint,pos,angleinRadians,scale,kinematic)
 {
-	setPositionAngle(pos, angleinRadians, scale);
+    //mSprings = new List<InternalSpring>();
 
     mShapeMatchingOn = true;
     mShapeSpringK = shapeSpringK;
@@ -42,6 +53,19 @@ Body(shape,massPerPoint,pos,angleinRadians,scale,kinematic)
 
 	
 	dragPoint = -1;
+
+	 setShape(shape);
+	 for (unsigned int i = 0; i < mPointMasses.size(); i++)
+		((PointMass*)mPointMasses[i])->Mass = massPerPoint;
+	 
+	if(massPerPoint > 0)
+		mIsStatic = false;
+	else
+		mIsStatic  = true;
+
+    mKinematic = kinematic;
+
+	setPositionAngle(pos, angleinRadians, scale);
 
     // build default springs.
     _buildDefaultSprings();
