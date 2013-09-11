@@ -54,6 +54,8 @@ public:
 	float mDerivedOmega;
 	float mLastAngle;
 
+	float mMaxVelocity;
+
 	AABB *mAABB;
 	int mMaterial;
 	bool mIsStatic;

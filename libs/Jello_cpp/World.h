@@ -79,6 +79,8 @@ public:
 	*/
 	World();
 
+	void SetGravity(Vector2 gravity);
+
 	/**
 	* get Velocity Damping
 	*\return damping

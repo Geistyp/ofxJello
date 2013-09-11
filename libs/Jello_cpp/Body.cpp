@@ -10,6 +10,8 @@ Body::Body()
 	mDerivedOmega = 0.0f;
 	mLastAngle = 0.0f;
 
+	mMaxVelocity = 200.0f;
+
 	mDerivedVel = Vector2::ZERO;
 
     mAABB = new AABB();
@@ -45,6 +47,8 @@ Body::Body(ClosedShape *shape, float massPerPoint, Vector2 &position, float angl
 	mDerivedOmega = 0.0f;
 	mLastAngle = 0.0f;
 
+	mMaxVelocity = 200.0f;
+
 	mDerivedVel = Vector2::ZERO;
 
     mAABB =  new AABB();
@@ -79,6 +83,8 @@ Body::Body(ClosedShape *shape, std::vector<float> pointMasses, Vector2 &position
 	mDerivedAngle = 0.0f;
 	mDerivedOmega = 0.0f;
 	mLastAngle = 0.0f;
+
+	mMaxVelocity = 200.0f;
 
 	mDerivedVel = Vector2::ZERO;
 
@@ -319,6 +325,11 @@ void  Body::integrate(float elapsed)
         mPointMasses[i]->integrateForce(elapsed);
 }
 
+inline float clamp(float x, float a, float b)
+{
+    return x < a ? a : (x > b ? b : x);
+}
+
 void  Body::dampenVelocity(float damp)
 {
     if (mIsStatic) { return; }
@@ -327,6 +338,10 @@ void  Body::dampenVelocity(float damp)
     {
         mPointMasses[i]->Velocity.X *= damp;
         mPointMasses[i]->Velocity.Y *= damp;
+
+		// TODO , we need to limit this
+		mPointMasses[i]->Velocity.X = clamp( mPointMasses[i]->Velocity.X, -mMaxVelocity, mMaxVelocity );
+		mPointMasses[i]->Velocity.Y = clamp( mPointMasses[i]->Velocity.Y, -mMaxVelocity, mMaxVelocity );
     }
 }
 
@@ -606,6 +621,9 @@ int Body::PointMassCount()
 
 PointMass *Body::getPointMass(int index)
 {
+	// TODO 
+	// dont know why will get -1 
+	if ( index == -1 ) return new PointMass();
     return mPointMasses[index];
 }
 

@@ -25,8 +25,13 @@ World::World()
     Vector2 max1(20.0, 20.0);
     setWorldLimits(min1, max1);
 
-    mPenetrationThreshold = 0.3f;
+    mPenetrationThreshold = 4.f;		// Default is 0.3f
 	mDamping = 0.999f;
+}
+
+void World::SetGravity(Vector2 gravity)
+{
+	Body::gGravity = gravity;
 }
 
 void World::setWorldLimits(Vector2 min, Vector2 max)
