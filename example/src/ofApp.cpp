@@ -90,11 +90,13 @@ void ofApp::draw(){
 	for(unsigned int i = 0;i < pressureBodies.size();i++)
 	{
 		Renderer::RenderGlobalShapeLine(pressureBodies[i]->mPointMasses, 0.8, 0, 0.5);
+		Renderer::RenderShapeNormal(pressureBodies[i]->mPointMasses, 0.5, 0.5, 0.5);
 	}
 
 	for(unsigned int i = 0;i < springBodies.size();i++)
 	{
 		Renderer::RenderGlobalShapeLine(springBodies[i]->mPointMasses, 0, 0.7, 0);
+		Renderer::RenderShapeNormal(springBodies[i]->mPointMasses, 0.5, 0.5, 0.5);
 	}
 
 	//draw line from body to cursor
