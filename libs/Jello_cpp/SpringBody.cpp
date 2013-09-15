@@ -8,7 +8,7 @@ SpringBody::~SpringBody()
 }
 
 
-SpringBody::SpringBody(ClosedShape *shape, float massPerPoint, float edgeSpringK, float edgeSpringDamp, Vector2 &pos, float angleinRadians, Vector2 scale, bool kinematic):
+SpringBody::SpringBody(ClosedShape *shape, float massPerPoint, float edgeSpringK, float edgeSpringDamp, Vector2 pos, float angleinRadians, Vector2 scale, bool kinematic):
 Body(shape,massPerPoint,pos,angleinRadians,scale,kinematic)
 {
     mShapeMatchingOn = true;
@@ -40,7 +40,7 @@ Body(shape,massPerPoint,pos,angleinRadians,scale,kinematic)
 	Type = 2;
 }
 
-SpringBody::SpringBody(ClosedShape *shape, float massPerPoint, float shapeSpringK, float shapeSpringDamp, float edgeSpringK, float edgeSpringDamp, Vector2 &pos, float angleinRadians, Vector2 scale, bool kinematic):
+SpringBody::SpringBody(ClosedShape *shape, float massPerPoint, float shapeSpringK, float shapeSpringDamp, float edgeSpringK, float edgeSpringDamp, Vector2 pos, float angleinRadians, Vector2 scale, bool kinematic):
 Body(shape,massPerPoint,pos,angleinRadians,scale,kinematic)
 {
     //mSprings = new List<InternalSpring>();

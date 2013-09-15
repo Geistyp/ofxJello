@@ -6,7 +6,7 @@ PressureBody::~PressureBody()
 	delete mEdgeLengthList;
 }
 
-PressureBody::PressureBody(ClosedShape *s, float massPerPoint, float gasPressure, float shapeSpringK, float shapeSpringDamp, float edgeSpringK, float edgeSpringDamp, Vector2 &pos, float angleInRadians, Vector2 scale, bool kinematic): 
+PressureBody::PressureBody(ClosedShape *s, float massPerPoint, float gasPressure, float shapeSpringK, float shapeSpringDamp, float edgeSpringK, float edgeSpringDamp, Vector2 pos, float angleInRadians, Vector2 scale, bool kinematic): 
 	SpringBody(s, massPerPoint, shapeSpringK, shapeSpringDamp, edgeSpringK, edgeSpringDamp, pos, angleInRadians, scale, kinematic)
 {
     mGasAmount = gasPressure;

@@ -41,7 +41,7 @@ Body::~Body()
 	mPointMasses.clear();
 }
 
-Body::Body(ClosedShape *shape, float massPerPoint, Vector2 &position, float angleInRadians, Vector2 scale, bool kinematic)
+Body::Body(ClosedShape *shape, float massPerPoint, Vector2 position, float angleInRadians, Vector2 scale, bool kinematic)
 {
 	mDerivedAngle = 0.0f;
 	mDerivedOmega = 0.0f;
@@ -78,7 +78,7 @@ Body::Body(ClosedShape *shape, float massPerPoint, Vector2 &position, float angl
 	Type = 1;
 }
 
-Body::Body(ClosedShape *shape, std::vector<float> pointMasses, Vector2 &position, float angleInRadians, Vector2 &scale, bool kinematic)
+Body::Body(ClosedShape *shape, std::vector<float> pointMasses, Vector2 position, float angleInRadians, Vector2 scale, bool kinematic)
 {
 	mDerivedAngle = 0.0f;
 	mDerivedOmega = 0.0f;

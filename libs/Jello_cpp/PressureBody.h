@@ -72,7 +72,7 @@ public:
     *\param scale scale
     *\param kinematic kinematic control boolean
 	*/
-	PressureBody(ClosedShape *s, float massPerPoint, float gasPressure, float shapeSpringK, float shapeSpringDamp, float edgeSpringK, float edgeSpringDamp, Vector2 &pos, float angleInRadians, Vector2 scale, bool kinematic);
+	PressureBody(ClosedShape *s, float massPerPoint, float gasPressure, float shapeSpringK, float shapeSpringDamp, float edgeSpringK, float edgeSpringDamp, Vector2 pos, float angleInRadians, Vector2 scale, bool kinematic);
 	/**
 	* Default deconstructor
 	*/

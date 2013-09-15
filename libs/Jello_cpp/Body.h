@@ -91,7 +91,7 @@ public:
     *\param scale local scale of the body
     *\param kinematic whether this body is kinematically controlled
 	*/
-	Body(ClosedShape *shape, float massPerPoint, Vector2 &position, float angleInRadians, Vector2 scale, bool kinematic);
+	Body(ClosedShape *shape, float massPerPoint, Vector2 position, float angleInRadians, Vector2 scale, bool kinematic);
 	/**
 	* create a body, and set its shape and position immediately - with individual masses for each PointMass.
 	*\param shape closed shape for this body
@@ -101,7 +101,7 @@ public:
     *\param scale local scale of the body
     *\param kinematic whether this body is kinematically controlled
 	*/
-	Body(ClosedShape *shape, std::vector<float> pointMasses, Vector2 &position, float angleInRadians, Vector2 &scale, bool kinematic);
+	Body(ClosedShape *shape, std::vector<float> pointMasses, Vector2 position, float angleInRadians, Vector2 scale, bool kinematic);
 	/**
 	* set the mass for each PointMass in this body.
 	*/

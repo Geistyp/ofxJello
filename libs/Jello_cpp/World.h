@@ -149,14 +149,14 @@ public:
 	*\param bodyID index of the body that contains the PointMass
 	*\param pmID index of the PointMass
 	*/
-	void getClosestPointMass(Vector2 &pt, int &bodyID, int &pmID);
+	void getClosestPointMass(Vector2 pt, int &bodyID, int &pmID);
 	/**
 	* Given a global point, get a body (if any) that contains this point.
     * Useful for picking objects with a cursor, etc.
 	*\param pt global point
 	*\return Body
 	*/
-	Body *getBodyContaining(Vector2 &pt);
+	Body *getBodyContaining(Vector2 pt);
 
 	/**
 	* Update the world by a specific timestep.

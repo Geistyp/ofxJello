@@ -136,7 +136,7 @@ Body *World::getBody(unsigned int index)
     return NULL;
 }
 
-void World::getClosestPointMass(Vector2 &pt, int &bodyID, int &pmID)
+void World::getClosestPointMass(Vector2 pt, int &bodyID, int &pmID)
 {
     bodyID = -1;
     pmID = -1;
@@ -155,7 +155,7 @@ void World::getClosestPointMass(Vector2 &pt, int &bodyID, int &pmID)
     }
 }
 
-Body *World::getBodyContaining(Vector2 &pt)
+Body *World::getBodyContaining(Vector2 pt)
 {
     for (unsigned int i = 0; i < mBodies.size(); i++)
     {

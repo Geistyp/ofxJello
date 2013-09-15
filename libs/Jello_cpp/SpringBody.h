@@ -71,7 +71,7 @@ public:
     *\param scale scale
     *\param kinematic kinematic control boolean
 	*/
-	SpringBody(ClosedShape *shape, float massPerPoint, float edgeSpringK, float edgeSpringDamp, Vector2 &pos, float angleinRadians, Vector2 scale, bool kinematic);
+	SpringBody(ClosedShape *shape, float massPerPoint, float edgeSpringK, float edgeSpringDamp, Vector2 pos, float angleinRadians, Vector2 scale, bool kinematic);
 	/**
 	* Create a SpringBody with shape matching turned ON.
 	*\param shape ClosedShape shape for this body
@@ -85,7 +85,7 @@ public:
     *\param scale scale
     *\param kinematic kinematic control boolean
 	*/
-	SpringBody(ClosedShape *shape, float massPerPoint, float shapeSpringK, float shapeSpringDamp, float edgeSpringK, float edgeSpringDamp, Vector2 &pos, float angleinRadians, Vector2 scale, bool kinematic);
+	SpringBody(ClosedShape *shape, float massPerPoint, float shapeSpringK, float shapeSpringDamp, float edgeSpringK, float edgeSpringDamp, Vector2 pos, float angleinRadians, Vector2 scale, bool kinematic);
 	/**
 	* Default deconstructor
 	*/
