@@ -189,6 +189,7 @@ void World::update(float elapsed)
 
     // now check for collision.
     // inter-body collision!
+	mCollisionList.clear();
     for (int i = 0; i < mBodiesC; i++)
     {
         for (int j = i + 1; j < mBodiesC; j++)
@@ -514,7 +515,7 @@ void World::_handleCollisions()
             }
         }
     }
-	mCollisionList.clear();
+	//mCollisionList.clear();
 }
 
 float World::PenetrationThreshold()
