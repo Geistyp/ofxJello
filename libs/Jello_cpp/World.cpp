@@ -124,7 +124,7 @@ void World::removeBody(Body *b)
 	//if found then remove
 	if(found == true)
 	{
-		mBodies.erase(mBodies.begin() + (index - 1)); 
+		mBodies.erase(mBodies.begin() + index); 
 	}
 }
 
